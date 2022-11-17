@@ -23,7 +23,7 @@ from pyrogram import filters, idle
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from PunyaAlby import app, log, Command, isCi
-from PunyaAlby.plugins import ALL_PLUGINS
+from PunyaAlby.modules import ALL_PLUGINS
 from config import BOT_VER, CMD_HANDLER
 from PunyaAlby import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
 from PunyaAlby.helpers.misc import create_botlog, git, heroku
