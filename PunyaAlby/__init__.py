@@ -19,7 +19,7 @@ from aiohttp import ClientSession
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from gpytranslate import Translator
 from pyrogram import Client
-from PunyaAlby.config import Config
+from PunyaAlby.sample_example import Config
 from pytgcalls import GroupCallFactory
 
 from config import (
