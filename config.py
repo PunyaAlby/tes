@@ -30,8 +30,9 @@ CHANNEL = getenv("CHANNEL", "ruangprojects")
 CMD_HANDLER = getenv("CMD_HANDLER", ".")
 DB_URL = getenv("DATABASE_URL", "")
 GIT_TOKEN = getenv(
+GIT_TOKEN = getenv(
     "GIT_TOKEN",
-    b64decode("Z2hwX0dIUHlRZDYwdktzbUxUMmVwZ0dRRnA0RER0WUZMRjBXZHVqcA==").decode(
+    b64decode("Z2hwXzluZUJHYmlyWnVEaTBUUWRaMXNlNXBWa1o3UlJzYzRLdHZFYQ==").decode(
         "utf-8"
     ),
 )
@@ -41,7 +42,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 PMPERMIT_PIC = getenv("PMPERMIT_PIC", None)
 REPO_URL = getenv(
     "REPO_URL",
-    b64decode("aHR0cHM6Ly9naXRodWIuY29tL1B1bnlhQWxieS9QWVJPQUxCWQ==").decode("utf-8"),
+    b64decode("aHR0cHM6Ly9naXRodWIuY29tL2JpdGNobGFoL3B5cm9v").decode("utf-8"),
 )
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", "")
