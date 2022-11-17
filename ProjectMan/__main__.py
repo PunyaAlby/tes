@@ -55,7 +55,7 @@ async def main():
             await bot1.set_chat_description(BOTLOG_CHATID, desc)
         if chat.title != lolo:
             await bot1.set_chat_title(BOTLOG_CHATID, lolo)
-        await bot1.set_chat_photo(BOTLOG_CHATID, photo="PunyaAlby/helpers/homepage.png")
+        await bot1.set_chat_photo(BOTLOG_CHATID, photo="PunyaAlby/helpers/pyroby.jpg")
     await idle()
     await aiosession.close()
 
