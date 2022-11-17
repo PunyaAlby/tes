@@ -7,6 +7,9 @@
 #
 # t.me/SharingUserbot & t.me/Lunatic0de
 
+import os
+import re
+import requests
 import asyncio
 import logging
 import sys
