@@ -19,6 +19,7 @@ from aiohttp import ClientSession
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from gpytranslate import Translator
 from pyrogram import Client
+from PunyaAlby.config import Config
 from pytgcalls import GroupCallFactory
 
 from config import (
@@ -57,6 +58,41 @@ LOGS = logging.getLogger(__name__)
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
 
+isDevelopment = bool(Config.IS_DEVELOPMENT)
+
+log = logging.getLogger()
+
+Command = Config.COMMAND
+whiteList = Config.WHITELIST_USERS
+botToken = Config.BOT_TOKEN
+LOAD_PLUGINS = Config.LOAD_PLUGINS
+NOLOAD_PLUGINS = Config.NOLOAD_PLUGINS
+
+isCi = bool(os.environ.get("IS_CI_RUNNER", False))
+
+if isDevelopment or isCi:
+	LOG_FORMAT = "[%(asctime)s.%(msecs)03d] %(filename)s:%(lineno)s %(levelname)s: %(message)s"
+	logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+	log.warning("Debug enabled")
+else:
+	logging.basicConfig(level=logging.WARNING)
+
+# if version < 3.6, stop bot.
+if sys.version_info[0] < 3 or sys.version_info[1] < 6:
+    log.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
+    quit(1)
+
+
+if whiteList:
+	filterWhitelist = filters.user(whiteList)
+else:
+	filterWhitelist = filters.incoming
+
+
+if botToken:
+	app = Client(Config.STRING_SESSION1, api_id=Config.api_id, api_hash=Config.api_hash, bot_token=BOT_Token)
+else:
+	app = Client(Config.STRING_SESSION1, api_id=Config.api_id, api_hash=Config.api_hash, app_version=Config.app_version, device_model=Config.device_model, system_version=Config.system_version, lang_code=Config.lang_code, workers=Config.WORKERS, test_mode=Config.IS_TEST_MODE)
 
 if (
     not STRING_SESSION1
@@ -118,7 +154,7 @@ bot2 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION2,
-        plugins=dict(root="WhyzuProject/modules"),
+        plugins=dict(root="PunyaAlby/modules"),
     )
     if STRING_SESSION2
     else None
@@ -130,7 +166,7 @@ bot3 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION3,
-        plugins=dict(root="WhyzuProject/modules"),
+        plugins=dict(root="PunyaAlby/modules"),
     )
     if STRING_SESSION3
     else None
@@ -142,7 +178,7 @@ bot4 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION4,
-        plugins=dict(root="WhyzuProject/modules"),
+        plugins=dict(root="PunyaAlby/modules"),
     )
     if STRING_SESSION4
     else None
@@ -154,7 +190,7 @@ bot5 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION5,
-        plugins=dict(root="WhyzuProject/modules"),
+        plugins=dict(root="PunyaAlby/modules"),
     )
     if STRING_SESSION5
     else None
