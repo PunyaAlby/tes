@@ -1,6 +1,6 @@
 import importlib
 
-from religram import LOAD_PLUGINS, NOLOAD_PLUGINS, log
+from PunyaAlby import LOAD_PLUGINS, NOLOAD_PLUGINS, log
 
 def __list_all_modules():
     from os.path import dirname, basename, isfile
