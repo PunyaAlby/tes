@@ -11,7 +11,7 @@
 _starter () {
     echo "Downloading source code"
     git clone https://github.com/PunyaAlby/tes
-    cd ALBY-PYROBOT/ && rm -rf .git
+    cd tes/ && rm -rf .git
     python3 ../updater.py ../requirements.txt requirements.txt
     echo "ALBY-PYROBOT v0.2.0, Copyright © 2022 (ALBY) <https://github.com/PunyaAlby>"
     python3 -m PunyaAlby
