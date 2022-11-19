@@ -236,7 +236,7 @@ async def initiate_bot():
         await robot.start()
         console.print("└ [green]Booted Bot Client")
         console.print("\n┌ [red]Booting Up The User Client...")
-        if STRING_SESSION != "None":
+        if STRING_SESSION1 != "None":
             random_assistant.append(1)
             console.print("├ [yellow]Booted User Client")
         
@@ -257,7 +257,7 @@ async def initiate_bot():
         else:
             BOT_NAME = getme.first_name
         BOT_USERNAME = getme.username
-        if STRING_SESSION != "None":
+        if STRING_SESSION1 != "None":
             getme = await client.get_me()
             ASSID = getme.id
             ASSIDS.append(ASSID)
