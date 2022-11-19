@@ -27,7 +27,6 @@ from aiohttp import ClientSession
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from gpytranslate import Translator
 from pyrogram import Client
-from pytgcalls import GroupCallFactory
 
 from config import (
     API_HASH,
@@ -200,7 +199,6 @@ boottime = time.time()
 ### Clients
 aiohttpsession = ClientSession()
 robot = robot
-pytgcalls = pytgcalls
 
 ### Config
 BOTLOG_CHATID = BOTLOG_CHATID
@@ -238,7 +236,6 @@ async def initiate_bot():
         console.print("└ [green]Booted Bot Client")
         console.print("\n┌ [red]Booting Up The User Client...")
         if STRING_SESSION != "None":
-            await pytgcalls.start()
             random_assistant.append(1)
             console.print("├ [yellow]Booted User Client")
         
